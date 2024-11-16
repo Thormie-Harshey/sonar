@@ -33,7 +33,7 @@ pipeline {
           steps {
             withSonarQubeEnv('sonar-server') {
                sh '''${scannerHome}/bin/sonar-scanner \
-                   -Dsonar.projectKey=javasonarscan \
+                   -Dsonar.projectKey=java-sonarscan \
                    -Dsonar.projectName=java-jenkins \
                    -Dsonar.projectVersion=1.0 \
                    -Dsonar.sources=src/main/java \

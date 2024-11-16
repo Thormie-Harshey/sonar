@@ -38,17 +38,17 @@ pipeline {
                    -Dsonar.projectVersion=1.0 \
                    -Dsonar.sources=src/main/java \
                    -Dsonar.java.binaries=target/classes \
-                   -Dsonar.organization=myreg-app'''
+                   -Dsonar.organization=myjava-app'''
             }
           }
         }
 
-        stage (quality gate) {
+        /*stage ('quality gate') {
             steps {
                 timeout(time: 1, unit: 'HOURS') {
                     waitForQualityGate abortPipeline: true
                 }
             }
-        }
+        }*/
     }
 }

@@ -33,22 +33,14 @@ pipeline {
           steps {
             withSonarQubeEnv('sonar-server') {
                sh '''${scannerHome}/bin/sonar-scanner \
-                   -Dsonar.projectKey=java-sonarscan \
-                   -Dsonar.projectName=java-jenkins \
+                   -Dsonar.projectKey=seun-java-app \
+                   -Dsonar.projectName=seun-java-app \
                    -Dsonar.projectVersion=1.0 \
                    -Dsonar.sources=src/main/java \
                    -Dsonar.java.binaries=target/classes \
-                   -Dsonar.organization=myjava-app'''
+                   -Dsonar.organization=seun-org'''
             }
           }
         }
-
-        /*stage ('quality gate') {
-            steps {
-                timeout(time: 1, unit: 'HOURS') {
-                    waitForQualityGate abortPipeline: true
-                }
-            }
-        }*/
     }
 }

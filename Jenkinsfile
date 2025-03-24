@@ -10,7 +10,7 @@ pipeline {
         
         stage ('fetch code') {
             steps {
-                git branch: 'java', url: 'https://github.com/Thormie-Harshey/sonar.git'
+                git branch: 'main', url: 'https://github.com/Thormie-Harshey/sonar.git'
             }
         }
         stage('build-app'){
@@ -31,7 +31,7 @@ pipeline {
              scannerHome = tool 'sonar-scanner-7'
           }
           steps {
-            withSonarQubeEnv('sonar-server') {
+            withSonarQubeEnv('humble') {
                sh '''${scannerHome}/bin/sonar-scanner \
                    -Dsonar.projectKey=humble-java-app \
                    -Dsonar.projectName=humble-java-app \

@@ -10,7 +10,7 @@ pipeline {
         
         stage ('fetch code') {
             steps {
-                git branch: 'java', url: 'https://github.com/seunayolu/sonarqube-jenkins.git'
+                git branch: 'java', url: 'https://github.com/Thormie-Harshey/sonar.git'
             }
         }
         stage('build-app'){
@@ -28,17 +28,17 @@ pipeline {
         stage('code analysis with sonarqube') {
           
 		  environment {
-             scannerHome = tool 'sonar-scanner-6'
+             scannerHome = tool 'sonar-scanner-7'
           }
           steps {
             withSonarQubeEnv('sonar-server') {
                sh '''${scannerHome}/bin/sonar-scanner \
-                   -Dsonar.projectKey=seun-java-app \
-                   -Dsonar.projectName=seun-java-app \
+                   -Dsonar.projectKey=humble-java-app \
+                   -Dsonar.projectName=humble-java-app \
                    -Dsonar.projectVersion=1.0 \
                    -Dsonar.sources=src/main/java \
                    -Dsonar.java.binaries=target/classes \
-                   -Dsonar.organization=seun-org'''
+                   -Dsonar.organization=humble-org'''
             }
           }
         }
